@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 500px;
+            margin: 100px auto;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td,
+        th {
+            border: 1px solid #000;
+        }
+        thead tr {
+            height: 40px;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+    </table>
+    <script>
+        var tb = document.querySelector('tbody');
+        var datas = [
+            {
+                name:'小天',
+                subject:'math',
+                mark:'97'
+            },
+            {
+                name:'小云',
+                subject:'math',
+                mark:'99'
+            },
+            {
+                name:'小雨',
+                subject:'math',
+                mark:'89'
+            },
+            {
+                name:'小凤',
+                subject:'math',
+                mark:'84'
+            },
+            {
+                name:'小懒',
+                subject:'math',
+                mark:'4'
+            },
+        ]
+        for(var i = 0;i<datas.length;i++){
+            var tr = document.createElement('tr');
+            tb.appendChild(tr);
+            for(var k in datas[i]){
+                var th = document.createElement('td');
+                //创建了单元格的同时将属性值给他
+                th.innerHTML= datas[i][k];
+                tr.appendChild(th);
+            }
+            //创建删除单元格
+            var td = document.createElement('td');
+            td.innerHTML = '<a href="javascript:;">删除</a>'
+            tr.appendChild(td);
+        }
+        var trAll = document.querySelectorAll('tr');
+        // console.log(trAll);
+        console.log(trAll[2].children[3]);
+        for(var i = 1;i<datas.length+1;i++){
+            trAll[i].children[3].onclick = function() {
+                tb.removeChild(this.parentElement);
+            }
+        }
+    </script>
+</body>
+</html>
