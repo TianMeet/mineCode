@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        a {
+            text-decoration: none;
+            display: block;
+            width: 80px;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            color: #000;
+        }
+        li {
+            list-style: none;
+        }
+        .top-nav {
+            /* position: absolute;
+            left: 50%;
+            top: 50%; */
+            width: 320px;
+            height: 40px;
+            margin: 200px auto;
+            /* transform: translate(-50%,-50%); */
+            background-color: #f4f4f4;
+            border-radius: 5px;
+        }
+        .nav {
+            float: left;
+            width: 80px;
+            
+        }
+        .nav ul {
+            display: none;
+            background-color: #eee;
+            border-radius: 4px;
+        }
+        .nav ul li{
+            line-height: 40px;
+            text-align: center;
+            transition: all .3s linear;
+        }
+        .nav ul li:hover {
+            background-color: yellow;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="top-nav">
+        <li class="nav">
+            <a href="#">花名</a>
+            <ul>
+                <li>玫瑰花</li>
+                <li>芙蓉</li>
+                <li>菊花</li>
+                <li>桂花</li>
+            </ul>  
+        </li>
+        <li class="nav">
+            <a href="#">树名</a>
+            <ul>
+                <li>万年青</li>
+                <li>枫树</li>
+                <li>黄角树</li>
+                <li>大榕树</li>
+            </ul>  
+        </li>
+        <li class="nav">
+            <a href="#">面条</a>
+            <ul>
+                <li>炒面</li>
+                <li>拉面</li>
+                <li>拌面</li>
+                <li>泡面</li>
+            </ul>  
+        </li>
+        <li class="nav">
+            <a href="#">辣条</a>
+            <ul>
+                <li>周扒皮</li>
+                <li>大长今</li>
+                <li>打狗棒</li>
+                <li>兰州拉面</li>
+            </ul>  
+        </li>
+    </ul>
+    <script>
+        var a = document.querySelectorAll('a');
+        var myul = document.querySelector('.top-nav');//将父亲里面的四个小儿子拿到手
+        // console.log(myul.children); //我自己检验了一下是不是拿到的四个nav
+        var myulchildren = myul.children;
+        for(var i = 0;i<myulchildren.length;i++) {
+            myulchildren[i].onmouseover = function() {
+                this.children[1].style.display = 'block';//this.children[1]指的是nav里面的第二个孩子 也就是ul
+            }
+            myulchildren[i].onmouseout = function() {
+                this.children[1].style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
